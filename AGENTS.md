@@ -161,3 +161,29 @@ New high-end PvM boss plugins are not accepted as a blanket policy.
 
 - No adult or overtly sexual content
 - No plugins that use player-provided IDs for their entire functionality (causes moderation issues)
+
+---
+
+# Repo-Specific Maintainer Notes (not part of the upstream template)
+
+Everything above this line is a verbatim copy of `runelite/example-plugin`'s `AGENTS.md`. The
+section below is specific to this repo and covers submitting/releasing it — not something a
+plugin user or Hub reviewer needs, so it lives here rather than in `README.md`.
+
+## Publishing to the Plugin Hub
+
+1. Make sure this repository is pushed to a **public** GitHub repo (Hub requirement).
+2. Fork [runelite/plugin-hub](https://github.com/runelite/plugin-hub).
+3. Add a file `plugins/tcg-exporter` there with:
+   ```
+   repository=https://github.com/kolox-/tcg-exporter.git
+   commit=<40-character hash of the latest commit>
+   ```
+4. Open a PR against `runelite/plugin-hub` with a short description of what the plugin does.
+5. Watch the PR's CI check and any review feedback; push updated commits (bumping `commit=`)
+   until it's approved.
+
+Full process: https://github.com/runelite/plugin-hub#submitting-a-plugin
+
+After the first approval, any future update follows the same shape: commit + push here, then a
+follow-up PR to `runelite/plugin-hub` bumping `plugins/tcg-exporter`'s `commit=` to the new hash.

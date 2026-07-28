@@ -109,11 +109,7 @@ To run it in a development client:
 ```
 
 If you have a Jagex account, follow [Using Jagex Accounts](https://github.com/runelite/runelite/wiki/Using-Jagex-Accounts)
-to log into the dev client. This project's author (an AI coding agent, in the session that
-wrote this) cannot verify in-game behavior itself — automating input against the real game
-risks account bans and isn't something it will do. Compiling and the decoder's unit test
-(`TcgCollectionDecoderTest`, checked against real encoded output from osrs-tcg's own algorithm)
-were verified; the actual golden path to test in-game is:
+to log into the dev client. To verify it's working end to end:
 
 1. Set a webhook URL (e.g. `https://webhook.site/...` for a quick manual check) and an API key.
 2. Log in with an account that has osrs-tcg installed and some pulled cards.
@@ -124,21 +120,3 @@ were verified; the actual golden path to test in-game is:
 5. Run `::tcg-save` in chat. Confirm a follow-up POST arrives with the same card now showing its
    real foil status (if applicable) and the actual pull timestamp — that's the checkpoint path
    correcting the placeholder.
-
-## Publishing to the Plugin Hub
-
-This repo is **not submitted anywhere yet** — publishing is a public, one-way action for you to
-decide on, not something done automatically. When you're ready:
-
-1. Make sure this repository is pushed to a **public** GitHub repo (Hub requirement).
-2. Fork [runelite/plugin-hub](https://github.com/runelite/plugin-hub).
-3. Add a file `plugins/tcg-exporter` there with:
-   ```
-   repository=https://github.com/kolox-/tcg-exporter.git
-   commit=<40-character hash of your latest commit>
-   ```
-4. Open a PR against `runelite/plugin-hub` with a short description of what the plugin does.
-5. Watch the PR's CI check and any review feedback; push updated commits (bumping `commit=`)
-   until it's approved.
-
-Full process: https://github.com/runelite/plugin-hub#submitting-a-plugin
