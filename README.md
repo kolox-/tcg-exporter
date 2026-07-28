@@ -34,9 +34,12 @@ this plugin defines itself:
 
 `acquiredAtEpochMs` is osrs-tcg's own recorded pull timestamp, not the time of the export
 request. Point the webhook at whatever backend you like that's willing to accept this shape —
-it happens to match the `/api/sync` endpoint of
-[osrs-tcg-pool](https://github.com/kolox-/osrs-tcg-pool), a private group collection tracker,
-but this plugin has no dependency on that project.
+this plugin has no dependency on, or awareness of, any specific server.
+
+Don't have a server yet? [tcg-pool-template](https://github.com/kolox-/tcg-pool-template) is a
+barebones, generic self-hostable server + web UI (FastAPI + SQLite + a plain HTML/JS frontend)
+built around this exact payload shape — clone it, run `docker compose up`, and point this
+plugin's webhook at its `/api/sync` endpoint.
 
 ## Data reading: read-only, no compile-time dependency on osrs-tcg
 
