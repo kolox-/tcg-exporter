@@ -5,6 +5,8 @@ collection to a webhook URL you configure. Built as a Plugin Hub submission (pub
 reviewed by RuneLite's team) rather than a privately-distributed tool, specifically so group
 members don't need to run an unsigned standalone executable to keep their collection synced.
 
+![TCG Exporter config panel](docs/screenshot-config.png)
+
 ## Configuration
 
 Three settings, all in the plugin's config panel:
