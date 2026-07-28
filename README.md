@@ -120,3 +120,8 @@ to log into the dev client. To verify it's working end to end:
 5. Run `::tcg-save` in chat. Confirm a follow-up POST arrives with the same card now showing its
    real foil status (if applicable) and the actual pull timestamp — that's the checkpoint path
    correcting the placeholder.
+
+## AI use disclosure
+
+This repository's code and documentation were written by Claude Sonnet 5 (Anthropic), under
+human direction and with manual review of all changes.
