@@ -36,9 +36,12 @@ public interface TcgExporterConfig extends Config
 
 	@ConfigItem(
 		keyName = "periodSeconds",
-		name = "Export period (seconds)",
-		description = "How often to check osrs-tcg's local collection for changes and export it, "
-			+ "in seconds. Nothing is sent if nothing changed since the last export.",
+		name = "Checkpoint period (seconds)",
+		description = "New/sold cards are also exported immediately via osrs-tcg's live update API when "
+			+ "available (foil status and pull time not yet known at that point). This setting controls "
+			+ "how often, separately, to re-check osrs-tcg's actual saved checkpoint for the real foil/"
+			+ "timestamp data, in seconds. Nothing is sent if nothing changed since the last export. Run "
+			+ "::tcg-save in chat, or log out, to force that checkpoint sooner instead of waiting.",
 		position = 2
 	)
 	default int periodSeconds()
